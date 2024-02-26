@@ -26,7 +26,7 @@ function Login() {
   }
   const register = () => {}
   return (
-    <div className=" bg-blue-400  justify-around items-center h-screen md:h-svh ">
+    <div className=" bg-blue-400  justify-around items-center h-screen md:h-svh  overflow-y-auto">
       <div className="bg  ">
         <div className=" flex flex-col  ">
           <div className=" justify-around items-center m-3 p-4 flex flex-col  ">

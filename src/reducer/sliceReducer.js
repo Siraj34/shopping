@@ -4,8 +4,9 @@ const initialState = {
   items: [],
   product: [],
   basket: null,
-  shipping: [],
+  shipping: '',
   paymentMethod: '',
+  clear: [],
 }
 
 export const cartSlice = createSlice({
@@ -47,10 +48,14 @@ export const cartSlice = createSlice({
     },
 
     getShipping: (state, action) => {
-      state.shipping = action.type.payload
+      state.shipping = action.payload
     },
     getPayment: (state, action) => {
       state.paymentMethod = action.type.payload
+    },
+
+    getClear: (state, action) => {
+      state.clear = action.payload
     },
   },
 })
@@ -64,13 +69,16 @@ export const {
   getSignOut,
   getShipping,
   getPayment,
+  getClear,
 } = cartSlice.actions
 export const selectCart = (state) => state.cart.items
 export const selectSignin = (state) => state.cart.basket
 export const selectProduct = (state) => state.cart.product
 export const selectShipping = (state) => state.cart.shipping
 export const selectPayment = (state) => state.cart.paymentMethod
+export const selectClear = (state) => state.cart.clear
 
 export const selectTotal = (state) =>
   state.cart.items.reduce((total, item) => total + item.price, 0)
+
 export default cartSlice.reducer
