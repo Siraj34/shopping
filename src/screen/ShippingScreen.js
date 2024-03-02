@@ -13,12 +13,17 @@ export default function ShippingScreen() {
   const dispatch = useDispatch()
   const navegate = useNavigate()
 
-  const handler = (e) => {
+  function handler(e) {
     e.preventDefault()
-    dispatch({
-      type: getShipping,
-      payload: { fullName, adress, city, postalCode, country },
-    })
+    dispatch(
+      getShipping({
+        fullName: fullName,
+        adress: adress,
+        city: city,
+        postalCode: postalCode,
+        country: country,
+      })
+    )
     navegate('/payment')
   }
 
@@ -80,7 +85,13 @@ export default function ShippingScreen() {
               />
             </div>
             <div className="m-1 p-2 text-black font-bold ">
-              <button onClick={handler}> Continue</button>
+              <button
+                onClick={handler}
+                className="bg bg-amber-200 h-11 w-[300px] rounded-full"
+              >
+                {' '}
+                Continue
+              </button>
             </div>
           </form>
         </div>

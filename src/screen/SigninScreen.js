@@ -65,7 +65,7 @@ function Login() {
               <button
                 type="submit"
                 onClick={signIn}
-                className="justify-around items-center m-1 flex flex-col bg-yellow-200 rounded-full w-40"
+                className="bg bg-amber-200 h-11 w-24 rounded-full"
               >
                 Sign In
               </button>
@@ -77,7 +77,10 @@ function Login() {
               Interest-Based Ads Notice.
             </p>
 
-            <button onClick={register} className="bg bg-amber-200 rounded-full">
+            <button
+              onClick={register}
+              className="bg bg-amber-200 h-11 w-[300px] rounded-full"
+            >
               <Link to={`/signup?redirect=${redirect}`}>
                 {' '}
                 Create your Amazon Account

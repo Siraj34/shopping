@@ -25,7 +25,7 @@ export default function PlaceOrderScreen() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100
-
+  console.log(shipping)
   //round2(0.15 * total.price)
   const place = async () => {
     try {
@@ -69,12 +69,13 @@ export default function PlaceOrderScreen() {
         <div className=" m-3 p-3 border border-indigo-600  w-full justify-between">
           <p>Shipping </p>
           <div className="m-3 p-3 text-black font-bold ">
-            <strong className="m-3"> Name : {shipping?.fullName}</strong>
             <div>
-              {' '}
-              <strong className="m-2 text-black">Address {''}:</strong>
-              {shipping?.adress},{shipping?.city},{shipping?.postalCode},
-              {shipping?.country}
+              <strong className="m-3"> Name : {shipping?.fullName}</strong>
+              <div>
+                <strong className="m-2 text-black">Address:</strong>
+                {shipping.adress},{shipping.city},{shipping.postalCode},
+                {shipping.country}
+              </div>
             </div>
           </div>
 
@@ -158,15 +159,14 @@ export default function PlaceOrderScreen() {
           </div>
 
           <div className="m-3">
-            <button
-              onClick={place}
-              disabled={items.length === 0}
-              className=" w-[100px]"
-            >
+            <button disabled={items.length === 0} className=" w-[100px]">
               {' '}
-              <strong className="bg bg-yellow-600  text-white">
+              <button
+                className="bg bg-amber-200 h-11 w-24 rounded-full"
+                onClick={place}
+              >
                 Place Order
-              </strong>
+              </button>
             </button>
           </div>
         </li>

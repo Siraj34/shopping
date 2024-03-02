@@ -1,11 +1,59 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectClear } from '../reducer/sliceReducer'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getOrders, selectClear, selectOrders } from '../reducer/sliceReducer'
 import { Link } from 'react-router-dom'
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
+import axios from 'axios'
 
 export default function OrderScreen() {
   const clear = useSelector(selectClear)
-  const [data, setdata] = useState(clear)
+  const orders = useSelector(selectOrders)
+  const dispatch = useDispatch()
+
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer()
+
+  function createOrder(data, actions) {
+    return actions.order
+      .create({
+        purchase_units: [{ amount: { value: clear.order.totalPrice } }],
+      })
+      .then((orderId) => {
+        return orderId
+      })
+  }
+
+  function onApprove(data, actions) {
+    return actions.order.capture().then(async function (details) {
+      try {
+        const { data } = await axios.put(
+          `/api/orders/${clear.order._id}/pay`,
+          details
+        )
+        dispatch(getOrders(data))
+        alert('Get Success')
+      } catch (error) {
+        console.log(error)
+      }
+    })
+  }
+
+  function onError(err) {
+    console.log(err)
+  }
+  useEffect(() => {
+    const loadPaypalScript = async () => {
+      const { data: clientId } = await axios.get('/api/keys/paypal')
+      paypalDispatch({
+        type: 'resetOptions',
+        value: {
+          'client-id': clientId,
+          currency: 'USD',
+        },
+      })
+      paypalDispatch({ type: 'setLoadingStatus', value: 'pending' })
+    }
+    loadPaypalScript()
+  }, [paypalDispatch])
 
   console.log(clear)
   return (
@@ -56,8 +104,8 @@ export default function OrderScreen() {
 
           <div to={'/payment'} className="">
             <button className="w-full bg-orange-300 text-white font-bold">
-              {clear.order.isPaid ? (
-                <span>Paid at {clear.order.paidAt}</span>
+              {orders?.order?.isPaid ? (
+                <span>Paid at {orders?.order?.paidAt}</span>
               ) : (
                 <span>Not Paid</span>
               )}
@@ -69,7 +117,7 @@ export default function OrderScreen() {
           <p>items</p>
           <div className="m-3 p-3 text-black font-bold ">
             {clear.order.orderItems?.map((item) => (
-              <div className="flex">
+              <div className="flex" key={item.title}>
                 <div>
                   <img src={item?.image} alt="" className="w-[40px]" />
                   <Link to={`/product/${item.category}`}></Link>
@@ -90,7 +138,7 @@ export default function OrderScreen() {
 
       <ul
         className="   items-end m-7 py-7 gap-10 text-white  
-         top-0 text-center bg-slate-600  h-64 md:w-[400px] 
+         top-0 text-center bg-slate-600 h-80 md:w-[400px] 
         "
       >
         <div className="tex text-center m-3 p-3  ">
@@ -124,8 +172,16 @@ export default function OrderScreen() {
           <div className="m-3">
             <button className=" w-[100px]">
               {' '}
-              <strong className="bg bg-yellow-600  text-white">
-                Order Total
+              <strong className="m-2">
+                <strong>
+                  <strong className="m-2">
+                    <PayPalButtons
+                      createOrder={createOrder}
+                      onApprove={onApprove}
+                      onError={onError}
+                    ></PayPalButtons>
+                  </strong>
+                </strong>
               </strong>
             </button>
           </div>

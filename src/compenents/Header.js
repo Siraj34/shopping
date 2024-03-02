@@ -7,7 +7,7 @@ import { MdNavigateNext } from 'react-icons/md'
 
 function Header() {
   const items = useSelector(selectCart)
-  const basket = useSelector(selectSignin)
+  const sign = useSelector(selectSignin)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [nav, setnav] = useState(false)
@@ -20,6 +20,17 @@ function Header() {
   const add2 = () => {
     navigate('/signin')
   }
+  const add3 = () => {
+    navigate('/orderhistory')
+  }
+  const add4 = () => {
+    navigate('/profile')
+  }
+
+  const add5 = () => {
+    navigate('/Dashboard')
+  }
+
   const hand = () => {
     setnav(!nav)
   }
@@ -31,11 +42,18 @@ function Header() {
         </Link>
 
         <div className={`md:flex m-2  hidden`}>
-          {basket ? (
+          {sign ? (
             <div className=" flex gap-3">
-              {basket.email}
-              <button className="">User Profile</button>
-              <button className="">Order History</button>
+              {sign.email}
+              <button className="" onClick={add4}>
+                UserProfile
+              </button>
+              <button className="" onClick={add3}>
+                OrderHistory
+              </button>
+              <button className="" onClick={add5}>
+                Dashboard
+              </button>
               <Link to={'/signup'} onClick={signout}>
                 SignOut
               </Link>
@@ -62,17 +80,27 @@ function Header() {
         <div
           className={
             nav
-              ? ' top-8 left-0 md:hidden mt-11 md:m-3  fixed  bg-slate-400 w-full  h-full ease-in-out duration-500'
+              ? ' top-8 left-0 md:hidden mt-11 md:m-3 fixed   bg-slate-400 w-full  h-[300px] ease-in-out duration-500'
               : 'fixed ease-in-out duration-500    left-[100%]  md:m-2'
           }
         >
-          {basket ? (
-            <div className="  m-3 py-4 grid grid-cols-1">
-              <button>{basket.email}</button>
-              <button className="">User Profile</button>
-              <button className="">Order History</button>
+          {sign ? (
+            <div
+              className="  m-3 py-4 grid grid-cols-1  
+            border-slate-900 divide-y divide-slate-500 border-b-4 "
+            >
+              <button>{sign.email}</button>
+              <button className="m-2" onClick={add4}>
+                UserProfile
+              </button>
+              <button className="m-2" onClick={add3}>
+                OrderHistory
+              </button>
+              <button className="m-2" onClick={add5}>
+                Dashboard
+              </button>
 
-              <button className="" onClick={signout}>
+              <button className="m-2" onClick={signout}>
                 {' '}
                 SignOut
               </button>

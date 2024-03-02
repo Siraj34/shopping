@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import CheckoutSteps from '../compenents/CheckoutSteps'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  getPayment,
-  selectPayment,
-  selectShipping,
-} from '../reducer/sliceReducer'
+import { getPayment, selectPayment } from '../reducer/sliceReducer'
 import { useNavigate } from 'react-router-dom'
 
 export default function PaymentScreen() {
   const paymentMethod = useSelector(selectPayment)
-  const shipping = useSelector(selectShipping)
+
   const dispatch = useDispatch()
   const [paymentMethodName, setPaymentMethodName] = useState(
     paymentMethod || 'PayPal'
@@ -25,7 +21,7 @@ export default function PaymentScreen() {
 
   const handler = (e) => {
     e.preventDefault()
-    dispatch({ type: getPayment, payload: paymentMethodName })
+    dispatch(getPayment(paymentMethodName))
     localStorage.setItem('paymentMethod', paymentMethodName)
     navigate('/placeorder')
   }
@@ -68,7 +64,7 @@ export default function PaymentScreen() {
               <div className="mb-3">
                 <button
                   onClick={handler}
-                  className="bg bg-orange-400 w-20 text-center rounded-full"
+                  className="bg bg-amber-200 h-11 w-24 rounded-full"
                 >
                   Continue
                 </button>

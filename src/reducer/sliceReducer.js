@@ -3,10 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   items: [],
   product: [],
-  basket: null,
-  shipping: '',
+  sign: null,
+  shipping: [],
   paymentMethod: '',
   clear: [],
+  orders: [],
 }
 
 export const cartSlice = createSlice({
@@ -41,21 +42,24 @@ export const cartSlice = createSlice({
     },
 
     getSignin: (state, action) => {
-      state.basket = action.payload
+      state.sign = action.payload
     },
     getSignOut: (state, action) => {
-      state.basket = null
+      state.sign = null
     },
 
     getShipping: (state, action) => {
       state.shipping = action.payload
     },
     getPayment: (state, action) => {
-      state.paymentMethod = action.type.payload
+      state.paymentMethod = action.payload
     },
 
     getClear: (state, action) => {
       state.clear = action.payload
+    },
+    getOrders: (state, action) => {
+      state.orders = action.payload
     },
   },
 })
@@ -70,13 +74,15 @@ export const {
   getShipping,
   getPayment,
   getClear,
+  getOrders,
 } = cartSlice.actions
 export const selectCart = (state) => state.cart.items
-export const selectSignin = (state) => state.cart.basket
+export const selectSignin = (state) => state.cart.sign
 export const selectProduct = (state) => state.cart.product
 export const selectShipping = (state) => state.cart.shipping
 export const selectPayment = (state) => state.cart.paymentMethod
 export const selectClear = (state) => state.cart.clear
+export const selectOrders = (state) => state.cart.orders
 
 export const selectTotal = (state) =>
   state.cart.items.reduce((total, item) => total + item.price, 0)

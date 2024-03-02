@@ -11,6 +11,9 @@ import ShippingScreen from './screen/ShippingScreen'
 import PaymentScreen from './screen/PaymentScreen'
 import PlaceOrderScreen from './screen/PlaceOrderScreen'
 import OrderScreen from './screen/OrderScreen'
+import OrderHistoryScreen from './screen/OrderHistoryScreen'
+import ProfileScreen from './screen/ProfileScreen'
+import DashboardScreen from './screen/DashboardScreen'
 
 function App() {
   return (
@@ -21,10 +24,13 @@ function App() {
         <Route path="/" element={<Product />} />
         <Route path="/signin" element={<SigninScreen />} />
         <Route path="/signup" element={<SignUpScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
-        <Route path="/order/:_id" element={<OrderScreen />} />
+        <Route path="/order/:id" element={<OrderScreen />} />
         <Route path="/shipping" element={<ShippingScreen />} />
         <Route path="/payment" element={<PaymentScreen />} />
+        <Route path="/dashboard" element={<DashboardScreen />} />
+        <Route path="/orderhistory" element={<OrderHistoryScreen />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
