@@ -57,8 +57,8 @@ export default function PlaceOrderScreen() {
 
   console.log(shipping)
   return (
-    <div className="h-screen flex overflow-y-auto justify-between i text-black font-bold bg-emerald-500 ">
-      <div className="ga m-3 p-2 w-[600px]">
+    <div className="md:h-screen md:flex overflow-y-auto md:justify-between i text-black font-bold bg-emerald-500 ">
+      <div className="ga m-3 p-2 md:w-[600px]">
         <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
         <div className=" m-3">
           <title className="m-3">Preview Order</title>

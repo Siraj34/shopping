@@ -28,9 +28,9 @@ export default function ShippingScreen() {
   }
 
   return (
-    <div className="b bg-slate-300 justify-around items-center h-screen overflow-y-auto">
+    <div className="b bg-slate-300 md:justify-around md:items-center h-screen  overflow-y-auto">
       <div>
-        <div className=" flex flex-col justify-around items-center ">
+        <div className=" md:flex md:flex-col justify-around items-center ">
           <div className="m-1 p-1 text-black font-bold  items-center">
             <h1>
               {' '}
@@ -38,14 +38,14 @@ export default function ShippingScreen() {
             </h1>
             <h1> Shipping Adress</h1>
           </div>
-          <form className=" flex flex-col ">
+          <form className=" md:flex md:flex-col ">
             <div className="m-2 p-2 text-black font-bold ">
               <h1>Full Name</h1>
               <input
                 type="text"
                 value={fullName}
                 onChange={(e) => setfullName(e.target.value)}
-                className=" w-[500px]"
+                className=" md:w-[500px]"
               />
             </div>
             <div className="m-2 p-2 text-black font-bold ">
@@ -54,7 +54,7 @@ export default function ShippingScreen() {
                 type="text"
                 value={adress}
                 onChange={(e) => setAdress(e.target.value)}
-                className=" w-[500px]"
+                className=" md:w-[500px]"
               />
             </div>
             <div className="m-2 p-2 text-black font-bold ">
@@ -63,7 +63,7 @@ export default function ShippingScreen() {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className=" w-[500px]"
+                className=" md:w-[500px]"
               />
             </div>
             <div className="m-2 p-2 text-black font-bold ">
@@ -72,7 +72,7 @@ export default function ShippingScreen() {
                 type="text"
                 value={postalCode}
                 onChange={(e) => setPostalCode(e.target.value)}
-                className=" w-[500px]"
+                className=" md:w-[500px]"
               />
             </div>
             <div className="m-2 p-2 text-black font-bold ">
@@ -81,7 +81,7 @@ export default function ShippingScreen() {
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className=" w-[500px]"
+                className=" md:w-[500px]"
               />
             </div>
             <div className="m-1 p-2 text-black font-bold ">

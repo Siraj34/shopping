@@ -57,8 +57,8 @@ export default function OrderScreen() {
 
   console.log(clear)
   return (
-    <div className="h-screen flex overflow-y-auto justify-between i text-black font-bold bg-emerald-500 ">
-      <div className="ga m-3 p-2 w-[600px]">
+    <div className="h-screen md:flex overflow-y-auto md:justify-between i text-black font-bold bg-emerald-500 ">
+      <div className="ga m-3 p-2 md:w-[600px]">
         <div className=" m-3">
           <title className="m-3"> Order {clear.order.id}</title>
 
@@ -170,7 +170,7 @@ export default function OrderScreen() {
           </div>
 
           <div className="m-3">
-            <button className=" w-[100px]">
+            <button className=" md:w-[100px]">
               {' '}
               <strong className="m-2">
                 <strong>

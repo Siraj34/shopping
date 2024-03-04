@@ -102,7 +102,7 @@ function Login() {
 
             <button
               onClick={register}
-              className="bg bg-amber-200 h-11 w-[400px] rounded-full"
+              className="bg bg-amber-200 h-11 md:w-[400px] rounded-full"
             >
               <Link to={`/signin?redirect=${redirect}`}>
                 {' '}

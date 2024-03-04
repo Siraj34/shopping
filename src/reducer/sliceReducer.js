@@ -8,6 +8,7 @@ const initialState = {
   paymentMethod: '',
   clear: [],
   orders: [],
+  filter: [],
 }
 
 export const cartSlice = createSlice({
@@ -61,6 +62,10 @@ export const cartSlice = createSlice({
     getOrders: (state, action) => {
       state.orders = action.payload
     },
+
+    getFilter: (state, action) => {
+      state.filter = action.payload
+    },
   },
 })
 
@@ -75,6 +80,7 @@ export const {
   getPayment,
   getClear,
   getOrders,
+  getFilter,
 } = cartSlice.actions
 export const selectCart = (state) => state.cart.items
 export const selectSignin = (state) => state.cart.sign
@@ -83,6 +89,7 @@ export const selectShipping = (state) => state.cart.shipping
 export const selectPayment = (state) => state.cart.paymentMethod
 export const selectClear = (state) => state.cart.clear
 export const selectOrders = (state) => state.cart.orders
+export const selectFilter = (state) => state.cart.filter
 
 export const selectTotal = (state) =>
   state.cart.items.reduce((total, item) => total + item.price, 0)

@@ -4,16 +4,18 @@ import axios from 'axios'
 
 const initialState = {
   data: [],
+  data1: [],
   status: StatusCode,
 }
 
 export const dataSlice = createSlice({
   name: 'basket',
   initialState,
-  //reducers: {
-  // getProduct: (state, action) => {
-  //  state.data = [...state.data, action.payload]
-  // },
+  reducers: {
+    getProducts: (state, action) => {
+      state.data1 = [...state.data, action.payload]
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state, action) => {
@@ -34,7 +36,7 @@ export const dataSlice = createSlice({
 export const { set_cart, removeFromBasket, getProduct } = dataSlice.actions
 
 export const selectData = (state) => state.basket.data
-
+export const selectData1 = (state) => state.basket.data1
 export const selectStatus = (state) => state.basket.status
 
 export default dataSlice.reducer
