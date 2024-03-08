@@ -1,13 +1,20 @@
 # Getting Started with Create React App
 
 ###[Live Site]###(https://shopping-22n2.vercel.app/)
+
+
+
+
+## Available 
+
+
+
 ![Shopping Application](https://i.postimg.cc/kGGzt28B/Screenshot-2024-03-08-162931.png)
        
 
 
 
 
-## Available Scripts
 
 In the project directory, you can run:
 
