@@ -1,7 +1,8 @@
 # Getting Started with Create React App
 
 LiveSite
-[ https://shopping-five-alpha.vercel.app/ ](https://shopping-five-alpha.vercel.app/)
+[https://shopping-five-alpha.vercel.app/]
+(https://shopping-five-alpha.vercel.app/)
 
 
 
