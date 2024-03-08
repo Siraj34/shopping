@@ -46,7 +46,7 @@ function Cart() {
                   <h1 className="font-bold text-xl whitespace-nowrap">
                     Subtotal ({items.length} items):
                     <span className="font-bold ml-1">
-                      <Currency quantity={total} currency="GBP" />
+                      <Currency quantity={total} currency="USD" />
                     </span>
                   </h1>
 

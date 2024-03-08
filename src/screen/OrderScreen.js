@@ -148,13 +148,13 @@ export default function OrderScreen() {
           <li className=" ">
             <div>
               <span className="">
-                items {''} : {clear.order.itemsPrice}
+                items {''} : ${clear.order.itemsPrice}
               </span>
             </div>
 
             <div>
               <span className="">
-                taxi{''} : {clear.order.taxPrice}
+                taxi{''} : ${clear.order.taxPrice}
               </span>
             </div>
           </li>
@@ -166,7 +166,7 @@ export default function OrderScreen() {
               {' '}
               <span className="p-4 font-bold ">
                 {' '}
-                All Total{''} : {clear.order.totalPrice}
+                All Total{''} : ${clear.order.totalPrice}
               </span>
             </div>
           </div>
