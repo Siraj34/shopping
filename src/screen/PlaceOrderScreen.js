@@ -29,14 +29,17 @@ export default function PlaceOrderScreen() {
   //round2(0.15 * total.price)
   const place = async () => {
     try {
-      const { data } = await axios.post('/api/orders', {
-        orderItems: items,
-        shippingAddress: shipping,
-        paymentMethod: paymentMethod,
-        itemsPrice: total,
-        taxPrice: total1,
-        totalPrice: total3,
-      })
+      const { data } = await axios.post(
+        'https://dataend-app.vercel.app/api/orders',
+        {
+          orderItems: items,
+          shippingAddress: shipping,
+          paymentMethod: paymentMethod,
+          itemsPrice: total,
+          taxPrice: total1,
+          totalPrice: total3,
+        }
+      )
       dispatch(getClear(data))
       navigate(`/order/${clear.order._id}`)
     } catch (error) {

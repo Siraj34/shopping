@@ -38,7 +38,7 @@ function Header() {
     <div className="flex md:gap-5 h-20 justify-between items-center text-black bg-orange-300 font-bold">
       <div className="md:m-3 md:p-3 text-xl md:flex hidden  ">
         <Link to={'/'}>
-          <h1 className={`g m-2`}>amazona</h1>
+          <h1 className={`g m-2`}>Amazona</h1>
         </Link>
 
         <div className={`md:flex m-2  hidden`}>
@@ -69,7 +69,7 @@ function Header() {
       <div>
         {' '}
         <Link to={'/'}>
-          <h1 className={`g m-2 flex md:hidden`}>amazona</h1>
+          <h1 className={`g m-2 flex md:hidden`}>Amazona</h1>
         </Link>
       </div>
 
@@ -115,7 +115,7 @@ function Header() {
           className="tex text-blue-50 m-3 p-2 md:flex  relative "
           onClick={add}
         >
-          <button className={`text-fuchsia-900  `}>{items.length}cart </button>
+          <button className={`text-fuchsia-900  `}>{items.length}Cart </button>
         </li>
       </ul>
     </div>

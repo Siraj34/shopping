@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Product from './compenents/Product'
-
+import FootScreen from './compenents/Footscreen'
 import Header from './compenents/Header'
 import Cart from './compenents/Cart'
 import ProductScreen from './screen/ProductScreen'
@@ -15,7 +15,9 @@ import OrderHistoryScreen from './screen/OrderHistoryScreen'
 import ProfileScreen from './screen/ProfileScreen'
 import DashboardScreen from './screen/DashboardScreen'
 import Home from './compenents/Home'
-import React, { useState } from 'react'
+
+import Contact from './compenents/Contact'
+import { useState } from 'react'
 
 function App() {
   const [search, setSearch] = useState('')
@@ -46,6 +48,8 @@ function App() {
         <Route path="/orderhistory" element={<OrderHistoryScreen />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Contact />
+      <FootScreen />
       <Footer />
     </BrowserRouter>
   )

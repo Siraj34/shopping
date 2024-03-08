@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSignin, selectSignin } from '../reducer/sliceReducer'
+import { Link } from 'react-router-dom'
 
 export default function ProfileScreen() {
   const sign = useSelector(selectSignin)
@@ -14,11 +15,14 @@ export default function ProfileScreen() {
   const update = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.put(`/api/users/profile/${sign._id}`, {
-        name,
-        email,
-        password,
-      })
+      const { data } = await axios.put(
+        `https://dataend-app.vercel.app/api/users/profile/${sign._id}`,
+        {
+          name,
+          email,
+          password,
+        }
+      )
       dispatch(getSignin(data))
       localStorage.setItem('sign', JSON.stringify(data))
     } catch (error) {
@@ -72,7 +76,7 @@ export default function ProfileScreen() {
                 className="bg bg-amber-200 h-11 w-24 rounded-full"
                 onClick={update}
               >
-                Update
+                <Link to={'/'}>Update</Link>
               </button>
             </form>
           </div>

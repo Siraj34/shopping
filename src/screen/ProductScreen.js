@@ -13,9 +13,11 @@ function ProductScreen() {
 
   useEffect(() => {
     const getfetch = async () => {
-      await axios.get(`/api/posts/category/${category}`).then((res) => {
-        dispatch(getAll(res.data))
-      })
+      await axios
+        .get(`https://dataend-app.vercel.app/api/posts/category/${category}`)
+        .then((res) => {
+          dispatch(getAll(res.data))
+        })
     }
     getfetch()
   }, [category])
@@ -28,12 +30,8 @@ function ProductScreen() {
   return (
     <div className="   md:flex justify-between items-cente h-screen  bg-neutral-400">
       <div className=" md:m-5 flex justify-between ">
-        <div className="bg ">
-          <img
-            src={product.image}
-            alt=""
-            className=" md:w-[300px] bg-slate-50"
-          />
+        <div className="bg m-5">
+          <img src={product.image} alt="" className=" w-[300px] bg-slate-50" />
         </div>
         <div className="m-2 py-2 flex-wrap">
           <div className="m-3 p-3 gap4 text-2xl  font-semibold">

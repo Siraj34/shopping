@@ -22,11 +22,14 @@ function Login() {
       return
     }
     try {
-      const { data } = await axios.post('api/users/signup', {
-        email,
-        password,
-        name,
-      })
+      const { data } = await axios.post(
+        'https://dataend-app.vercel.app/api/users/signup/',
+        {
+          email,
+          password,
+          name,
+        }
+      )
       dispatch(getSignin(data))
       localStorage.setItem('userInfo', data)
       navegate(redirect || '/')

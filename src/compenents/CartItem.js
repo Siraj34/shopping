@@ -38,11 +38,11 @@ function CartItem({ price, description, id, image, category, title, rating }) {
       </div>
 
       <div className="md:m-5 md:p-5 font-bold flex">
-        <p>{price}</p>
+        <p>${price}</p>
       </div>
       <div className="flex py-3 ">
         <div className="md:m-3 p-3 font-bold   ">
-          <button className="" onClick={addItem2}>
+          <button className="h-10 w-10 bg-orange-200" onClick={addItem2}>
             -
           </button>
         </div>
@@ -50,7 +50,7 @@ function CartItem({ price, description, id, image, category, title, rating }) {
           <button className=" ">{items.length}</button>
         </div>
         <div className="md:m-3 p-3 font-bold   ">
-          <button className=" " onClick={addItem}>
+          <button className="h-10 w-10 bg-orange-200 " onClick={addItem}>
             +
           </button>
         </div>

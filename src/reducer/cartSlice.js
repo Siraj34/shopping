@@ -42,7 +42,7 @@ export const selectStatus = (state) => state.basket.status
 export default dataSlice.reducer
 
 export const getProducts = createAsyncThunk('basket/getBasket', async () => {
-  const { data } = await axios.get('http://localhost:4000/api/posts/')
+  const { data } = await axios.get('https://dataend-app.vercel.app/api/posts')
   console.log(data)
   return data
 })

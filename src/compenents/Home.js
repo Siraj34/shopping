@@ -24,19 +24,19 @@ function Home({ search, setSearch }) {
   }, [data2])
 
   return (
-    <div className=" h-screen bg-rose-500  md:flex justify-center">
+    <div className=" h-screen bg-rose-500  md:flex w-full ">
       <div>
         <div className="md:flex md:flex-col justify-center ">
           <div className=" flex justify-center">
             {' '}
             <img
-              className="home__image h-52  w-full"
+              className="home__image h-52 w-[1000px] "
               src="./images/soon.jpg"
               alt=""
             />
           </div>
 
-          <form className="m-3 p-3 w-{500px}  flex justify-center">
+          <form className="m-3 p-3 w-{500px}  flex justify-center ">
             <input
               type="text"
               value={search}
@@ -48,12 +48,12 @@ function Home({ search, setSearch }) {
               Search
             </button>
           </form>
-          <div className="m-3 p-3 w-{500px}">
+          <div className="m-3 p-3 md:w-{500px}">
             <div
-              className="  m-6 md:p-6  text-white font-bold 
+              className="  m-2 md:p-2  text-white font-bold 
              border-2 border-slate-900 divide-y divide-slate-900  "
             >
-              <div className="md:flex md:justify-center items-center md:gap-3 md:m-5 p-5  ">
+              <div className="md:flex  items-center md:gap-3 md:m-5 p-5  ">
                 <button
                   className="border border-black text-orange-300  hover:bg-slate-200 uppercase h-10 w-40"
                   onClick={(e) => setdata2(data, e)}

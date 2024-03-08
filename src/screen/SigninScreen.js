@@ -16,7 +16,10 @@ function Login() {
   const signIn = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post('api/users/signin', { email, password })
+      const { data } = await axios.post(
+        'https://dataend-app.vercel.app/api/users/signin/',
+        { email, password }
+      )
       dispatch(getSignin(data))
       localStorage.setItem('userInfo', data)
       navegate(redirect || '/')

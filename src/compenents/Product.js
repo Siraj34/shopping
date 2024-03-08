@@ -32,7 +32,7 @@ function Product({ search, setSearch }) {
   }
 
   return (
-    <div className="  flex flex-wrap  justify-between  md:h-full w-ful bg-red-950">
+    <div className=" flex flex-wrap md:h-full md:w-full md:justify-center bg-red-950">
       {filter
         .filter((items) => {
           if (search == '') {
@@ -46,10 +46,10 @@ function Product({ search, setSearch }) {
         .map((product, index) => {
           return (
             <div
-              className="   bg-slate-400  m-3 px-3 gap-2 w-[400px] justify-center  "
+              className="   bg-slate-400  m-3 p-3 gap-2  w-[400px] justify-center  "
               key={index.title}
             >
-              <div className="md:grid md:grid-cols-2 ">
+              <div className=" md:grid md:grid-cols-2  ">
                 <div className=" ">
                   <div className="w-[200px]">
                     <Link to={`/product/${product?.category}`}>

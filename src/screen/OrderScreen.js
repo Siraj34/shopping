@@ -26,7 +26,7 @@ export default function OrderScreen() {
     return actions.order.capture().then(async function (details) {
       try {
         const { data } = await axios.put(
-          `/api/orders/${clear.order._id}/pay`,
+          `https://dataend-app.vercel.app/api/orders/${clear.order._id}/pay`,
           details
         )
         dispatch(getOrders(data))
@@ -42,7 +42,9 @@ export default function OrderScreen() {
   }
   useEffect(() => {
     const loadPaypalScript = async () => {
-      const { data: clientId } = await axios.get('/api/keys/paypal')
+      const { data: clientId } = await axios.get(
+        'https://dataend-app.vercel.app/api/keys/paypal'
+      )
       paypalDispatch({
         type: 'resetOptions',
         value: {
