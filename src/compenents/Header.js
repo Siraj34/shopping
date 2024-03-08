@@ -59,8 +59,12 @@ function Header() {
               </Link>
             </div>
           ) : (
-            <div>
-              <Link to={'/signin'}>SignIn</Link>
+            <div className="">
+              <button className="h-10 w-40 bg-orange-200 rounded-full">
+                <Link to={'/signin'} className="  ">
+                  SignIn
+                </Link>
+              </button>
             </div>
           )}
         </div>
@@ -106,8 +110,12 @@ function Header() {
               </button>
             </div>
           ) : (
-            <div>
-              <Link to={'/signin'}>SignIn</Link>
+            <div className="m-3 p-3">
+              <Link to={'/signin'}>
+                <button className=" h-10 w-20 bg-orange-400 text-center rounded-full  ">
+                  SignIn
+                </button>
+              </Link>
             </div>
           )}
         </div>
