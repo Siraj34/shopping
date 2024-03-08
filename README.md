@@ -1,7 +1,11 @@
 # Getting Started with Create React App
 
 ###[Live Site]###(https://shopping-one-livid.vercel.app)
-###(https://postimg.cc/H8GBqs6g)
+![Shopping Application](https://i.postimg.cc/kGGzt28B/Screenshot-2024-03-08-162931.png)
+       
+
+
+
 
 ## Available Scripts
 
