@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-###[Live Site]###(https://shopping-one-livid.vercel.app)
+###[Live Site]###(https://shopping-22n2.vercel.app/)
 ![Shopping Application](https://i.postimg.cc/kGGzt28B/Screenshot-2024-03-08-162931.png)
        
 
