@@ -1,6 +1,11 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###[Live Site]###(https://shopping-one-livid.vercel.app)
+![Shopping Application](https://i.postimg.cc/kGGzt28B/Screenshot-2024-03-08-162931.png)
+       
+
+
+
 
 ## Available Scripts
 
